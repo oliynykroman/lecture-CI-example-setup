@@ -107,7 +107,7 @@ GitHub automatically reads workflow files from `.github/workflows/`.
 
 The CI workflow runs when:
 
-- code is pushed to `main`;
+- code is pushed to `main` or `develop`;
 - a pull request targeting `main` is opened or updated.
 
 ## How The CI Pipeline Works
@@ -260,24 +260,27 @@ change -> push -> automatic checks -> feedback -> fix -> green pipeline
 
 A realistic team workflow usually looks like this:
 
-1. Create a new branch.
-2. Make changes.
-3. Push the branch.
-4. Open a pull request.
-5. Wait for CI checks.
-6. Review the code.
-7. Merge only if CI is green.
+1. Keep `main` as the stable branch.
+2. Create or use a working branch such as `develop`.
+3. Make changes in `develop`.
+4. Push `develop` to GitHub.
+5. Open a pull request from `develop` into `main`.
+6. Wait for CI checks.
+7. Review the code.
+8. Merge only if CI is green.
 
 Example:
 
 ```bash
-git checkout -b improve-cart-validation
+git checkout develop
 git add .
 git commit -m "Improve cart validation"
-git push -u origin improve-cart-validation
+git push
 ```
 
 Then open a pull request on GitHub.
+
+For a classroom demonstration, intentionally break one test in `develop`, push it, and open a pull request into `main`. Students will see that CI fails on the pull request while `main` remains protected from the broken change.
 
 ## Important CI Concepts
 
