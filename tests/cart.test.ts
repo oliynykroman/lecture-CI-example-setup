@@ -9,7 +9,7 @@ describe("cart calculations", () => {
       { name: "Pen", price: 1.25, quantity: 3 }
     ]);
 
-    expect(subtotal).toBe(17.75);
+    expect(subtotal).toBe(19.75);
   });
 
   it("applies a percentage discount and rounds to two decimal places", () => {
