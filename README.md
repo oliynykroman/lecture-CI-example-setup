@@ -1,0 +1,1 @@
+# lecture-CI-example-setup
