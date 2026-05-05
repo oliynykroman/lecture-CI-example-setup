@@ -1,5 +1,5 @@
 export class Checkout {
     constructor() {
-        console.log
+        console.log('checkout');
     }
 }
